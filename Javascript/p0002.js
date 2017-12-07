@@ -8,7 +8,7 @@
 // By considering the terms in the Fibonacci sequence whose
 // values do not exceed four million, find the sum of the even-valued terms.
 
-// Constant Space Solution
+// Space optimized 
 
 function fibEvenSumBelow(max) {
   let sum = 2;
@@ -31,26 +31,26 @@ console.log(fibEvenSumBelow(4000000))
 
 // Answer: 4613732
 
-// Original Solution
+// Original Solution: Requires full sequence to be generated
 
-function fibonacciSequenceBelow(max) {
-const fibArr = [1];
-let newNum = 2
-  while(newNum < max) {
-    fibArr.push(newNum);
-    newNum = fibArr[fibArr.length - 1] + fibArr[fibArr.length - 2];
-  }
-  return fibArr;
-}
-
-function sumEvenOfArr(arr) {
-  let sum = 0;
-  for (let num of arr) {
-    if (num % 2 === 0) {
-      sum += num;
-    }
-  }
-  return sum;
-}
-
-console.log(sumEvenOfArr(fibonacciSequenceBelow(4000000)));
+// function fibonacciSequenceBelow(max) {
+// const fibArr = [1];
+// let newNum = 2
+//   while(newNum < max) {
+//     fibArr.push(newNum);
+//     newNum = fibArr[fibArr.length - 1] + fibArr[fibArr.length - 2];
+//   }
+//   return fibArr;
+// }
+//
+// function sumEvenOfArr(arr) {
+//   let sum = 0;
+//   for (let num of arr) {
+//     if (num % 2 === 0) {
+//       sum += num;
+//     }
+//   }
+//   return sum;
+// }
+//
+// console.log(sumEvenOfArr(fibonacciSequenceBelow(4000000)));
