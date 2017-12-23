@@ -25,3 +25,5 @@ function pythagoreanTriplet(n) {
 }
 
 console.log(pythagoreanTriplet(1000))
+
+// Answer: 31875000

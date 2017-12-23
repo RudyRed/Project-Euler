@@ -27,3 +27,5 @@ function sumOfPrimesBelow(n) {
 }
 
 console.log(sumOfPrimesBelow(2000000));
+
+// Answer: 142913828922
