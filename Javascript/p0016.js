@@ -12,3 +12,5 @@ function powerDigitSum(base, power) {
 }
 
 console.log(powerDigitSum(2, 1000));
+
+// Answer: 1366
