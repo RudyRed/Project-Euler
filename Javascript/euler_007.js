@@ -1,9 +1,10 @@
-// 10001st prime
+// Problem 7
+// =========
 //
-// By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13,
-// we can see that the 6th prime is 13.
+// By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see
+// that the 6th prime is 13.
 //
-// What is the 10 001st prime number?
+// What is the 10001st prime number?
 
 function isPrime(num) {
   if (num === 2) {
@@ -21,7 +22,7 @@ function isPrime(num) {
   return true;
 }
 
-function primeAtN(n) {
+function primeAt(n) {
   if (n === 1) return 2;
   let primeCount = 1;
   let currentPrime = 2;
@@ -37,6 +38,4 @@ function primeAtN(n) {
   return currentPrime;
 }
 
-console.log(primeAtN(10001))
-
-// Answer: 104743
+return primeAt(10001);
