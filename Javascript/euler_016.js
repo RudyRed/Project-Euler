@@ -5,13 +5,38 @@
 //
 // What is the sum of the digits of the number 2^1000?
 
-const BigNumber = require('bignumber.js'); // need to redo without BigNumber
+const ListNode = function (val) {
+  this.val = val;
+  this.next = null;
+};
 
-function powerDigitSum(base, power) {
-  return BigNumber(base).toPower(1000).c
-    .map(x => x.toString().split('').reduce((a,i) => a + Number(i), 0))
-    .reduce((a, i) => a + i, 0);
-}
+const powerDigitSum = function (base, power) {
+  let list = new ListNode(1);
+  let nodeLimit = 10;
 
-// TODO: return your answer for this prompt.
+  for (let i = 0; i < power; i++) {
+    let curr = list;
+    let prev = null;
+    let carried = 0;
+    while (curr) {
+      curr.val *= base;
+      curr.val += carried;
+      carried = (curr.val - (curr.val % nodeLimit)) / nodeLimit;
+      curr.val = curr.val % nodeLimit;
+      prev = curr;
+      curr = curr.next;
+      }
+      if (carried) prev.next = new ListNode(carried);
+  }
+
+  let output = 0;
+
+  while (list) {
+    output += list.val;
+    list = list.next;
+  }
+
+  return output;
+};
+
 return powerDigitSum(2, 1000);
