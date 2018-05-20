@@ -32,4 +32,4 @@ const lexPerm = function (nums, start, set, target) {
   }
 };
 
-return lexPerm([0,1,2,3,4,5,6,7,8,9], 0, '', 1000000); // sb 201
+return lexPerm([0,1,2,3,4,5,6,7,8,9], 0, '', 1000000);
