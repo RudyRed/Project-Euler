@@ -15,34 +15,55 @@
 // What is the sum of both diagonals in a 1001 by 1001 spiral formed in the
 // same way?
 
-const spiralDiagSum = function (size) { // start with top right
-  let spiral = [[1]];
+const spiralDiagSum = function (size) {
+  let sum = 1;
   let val = 1;
+  let length = 1;
 
-  while (spiral.length < size) {
-    const nextLength = spiral.length + 2;
+  while (length < size) {
+    length += 2;
 
-    for (let r = 0; r <= spiral.length - 1; r++) spiral[r].push(++val);
+    for (let i = 0; i < 4; i++) {
+      val += length - 1;
+      sum += val;
+    }
 
-    const bottomRow = [];
-    for (let c = nextLength - 1; c >= 0; c--) bottomRow[c] = ++val;
-    spiral.push(bottomRow);
-
-    for (let r = spiral.length - 2; r >= 0; r--) spiral[r] = [++val, ... spiral[r]];
-
-    const topRow = [];
-    for (let c = 0; c < nextLength; c++) topRow.push(++val);
-    spiral = [topRow, ... spiral];
   }
 
-  let diagonalsSum = -1; // the middle of the spiral 1 get counted twice, this offsets that
-
-  for (let i = 0; i < spiral.length; i++) {
-    diagonalsSum += spiral[i][i] + spiral[i][spiral.length - 1 - i];
-  }
-
-  return diagonalsSum;
+  return sum;
 };
+
+// const spiralDiagSum = function (size) { // start with top right
+//   // create entire matrix method;
+//   let spiral = [[1]];
+//   let val = 1;
+//
+//   while (spiral.length < size) {
+//     const nextLength = spiral.length + 2;
+//
+//     for (let r = 0; r <= spiral.length - 1; r++) spiral[r].push(++val);
+//
+//     const bottomRow = [];
+//     for (let c = nextLength - 1; c >= 0; c--) bottomRow[c] = ++val;
+//     spiral.push(bottomRow);
+//
+//     for (let r = spiral.length - 2; r >= 0; r--) spiral[r] = [++val, ... spiral[r]];
+//
+//     const topRow = [];
+//     for (let c = 0; c < nextLength; c++) topRow.push(++val);
+//     spiral = [topRow, ... spiral];
+//   }
+//
+//   let diagonalsSum = -1; // the middle of the spiral 1 get counted twice, this offsets that
+//
+//   for (let i = 0; i < spiral.length; i++) {
+//     diagonalsSum += spiral[i][i] + spiral[i][spiral.length - 1 - i];
+//   }
+//
+//   return diagonalsSum;
+// };
+
+
 
 
 return spiralDiagSum(1001);
